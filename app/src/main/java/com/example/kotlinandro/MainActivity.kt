@@ -1,5 +1,6 @@
 package com.example.kotlinandro
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -47,8 +48,10 @@ class MainActivity : AppCompatActivity() {
 
 
         // Display a negative button on alert dialog
-        builder.setNegativeButton("No"){dialog,which ->
-            Toast.makeText(applicationContext,"You are not agree.",Toast.LENGTH_SHORT).show()
+        builder.setNegativeButton("ListView"){dialog,which ->
+            //Toast.makeText(applicationContext,"You are not agree.",Toast.LENGTH_LONG).show()
+            Listview()
+
         }
 
 
@@ -67,5 +70,18 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    public fun Listview() {
+
+        val list = Intent(
+                this,
+                ListViewActivity::class.java
+        )
+        startActivity(list)
+
+
+    }
+
+
 
     }
