@@ -25,6 +25,10 @@ private class MyCustomAdapter(context:Context): BaseAdapter(){
 
     private val mContext: Context
 
+    private val names = arrayListOf<String>(
+        "RSk","BSLI","Gurgaon","Android","Development","IOS"
+    )
+
     init {
         mContext = context
 
@@ -44,35 +48,46 @@ private class MyCustomAdapter(context:Context): BaseAdapter(){
 
 
 
+    private class ViewHolder(view: View) {
+        val title = view.findViewById<TextView>(R.id.textView2)
+        val name = view.findViewById<TextView>(R.id.textView3)
 
+
+    }
 
     @SuppressLint("ResourceType")
     override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
 
+        val view: View
+        val vh: ViewHolder
+        val layoutInflator = LayoutInflater.from(mContext)
 
-//        val layoutInflator = LayoutInflater.from(mContext)
-//
-//        val rowMain = layoutInflator.inflate(R.id.row_listview,viewGroup,false)
-//
-//        return rowMain
-//
+        view = layoutInflator.inflate(R.layout.row_listview,viewGroup,false)
+
+        vh = ViewHolder(view)
+        vh.title.text = "Hi Kotlin: $position"
+        vh.name.text = names.get(position)
+
+        return view
+
 
 
 //        val layoutInflator = LayoutInflater.from(mContext)
 //
 //      val rowMain =  layoutInflator.inflate(R.id.row_listview, ViewGroup,false)
+//
+//
+//        var textview = TextView(mContext)
+//        textview.text = "Hi, Hello"
+//
+//        return textview
 
-
-        var textview = TextView(mContext)
-        textview.text = "Hi, Hello"
-
-        return textview
-
-       // return rowMain
+        //return rowMain
 
 
     }
 
 }
+
 
 }
